@@ -1,0 +1,19 @@
+version: "1"
+
+services:
+  - type: web
+    name: marathon-tracker
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "3000"
+    resources:
+      cpu: 0.1
+      memory: 256
+    scaling:
+      min: 1
+      max: 1
